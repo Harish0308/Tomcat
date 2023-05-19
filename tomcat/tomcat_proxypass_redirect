@@ -1,0 +1,17 @@
+
+        upstream tomcat {
+    server 54.188.195.64:8080;
+
+}
+server {
+    listen 80;
+    server_name testdomainjsp.com;
+    location / {
+    proxy_pass http://tomcat;
+    }
+
+    location /tomcat1 {
+        return 301 http://54.188.195.64:7070;
+    }
+}
+
